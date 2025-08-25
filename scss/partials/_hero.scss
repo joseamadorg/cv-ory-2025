@@ -8,7 +8,7 @@
         background-image: url("../img/aida_2024.webp");
         background-position-x: 75%;
         background-position-y: 90%;
-        background-size: 170%;
+        background-size: 185%;
         background-repeat: no-repeat;
         display: flex;
         flex-direction: column;
@@ -51,7 +51,7 @@
     &__name {
         display: block;
         letter-spacing: 0.8px; 
-        font-size: 5rem;
+        font-size: 3rem;
         margin-top: 1.2rem;
         text-align: center;
         font-weight: 700;
@@ -168,5 +168,5 @@
 
 .softwaregrid{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
 }
