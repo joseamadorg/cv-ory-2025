@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Squada+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,36 +19,42 @@
         <div class="spinner"></div>
     </div>
     <section class="hero">
-        <section id="profile" class="hero__izq ">
-            <figure class="hero__figure">
-                <h1 class="hero__name">Aida López-Ortiz<br>
-                <figcaption>
-                    <span class="hero__subtitle">Cellular Biologist</span></h1>   
-                    <p class="hero__caption">
-                        PhD Student<br>Neuroscience Graduate Program NGP<br>University of Virginia
+        <section id="profile" class="hero__izq">
+            <canvas id="matrix-bg"></canvas>
+            <div class="hero__izq-container">
+                <div class="pixel-card">
+                <div class="pixel-card__header">
+                    <h1 class="pixel-card__name">AIDA LOPEZ-ORTIZ</h1>
+                </div>
+
+                <div class="pixel-card__image-frame">
+                    <div class="pixel-card__label-top">CELLULAR BIOLOGIST</div>
+                    <img src="./img/oryza-card-img.jpeg" alt="Aida López-Ortiz" class="pixel-card__main-img">
+                    <div class="pixel-card__label-bottom">PHD STUDENT</div>
+                </div>
+
+                <div class="pixel-card__info-box">
+                    <p class="pixel-card__text">
+                        Neuroscience Graduate Program NGP<br>
+                        <span class="highlight">University of Virginia</span>
                     </p>
-                </figcaption>
-                <section class="social__container">
-                    <div class="social__icon--hover">
-                        <span class="tooltip-text tooltip-bottom">LinkedIn</span>
-                        <a href="https://www.linkedin.com/in/aida-oryza-lopez-ortiz/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin social__icon"></i></a>
-                    </div>
-                    <div class="social__icon--hover">
-                        <span class="tooltip-text tooltip-bottom">Email</span>
-                        <a href="mailto:uht6mu@virginia.edu"><i class="fa-solid fa-envelope social__icon"></i></a>
-                    </div>
-                    <div class="social__icon--hover">
-                        <span class="tooltip-text tooltip-bottom">Download Resume</span>
-                        <a href="./img/Aida_Lopez-Ortiz_CV_2022.pdf" rel="noopener noreferrer"><i class="fa-solid fa-address-card social__icon"></i></a>
-                    </div>
-                </section>
-                <blockquote class="quote">
-                    "Life is not easy for any of us. But what of that? We must have perseverance and above all confidence in ourselves. We must believe that we are gifted for something and that this thing must be attained." - Marie Curie
-                </blockquote>
-                <br>
+                </div>
+
+                <div class="pixel-card__social">
+                    <a href="https://www.linkedin.com/in/aida-oryza-lopez-ortiz/" target="_blank" title="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:uht6mu@virginia.edu" title="Email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                    <a href="./img/Aida_Lopez-Ortiz_CV_2022.pdf" title="Download Resume">
+                        <i class="fa-solid fa-address-card"></i>
+                    </a>
+                </div>
+                </div>
                 <button class="toggle__btn" onclick='toggleHeroDerTop()'><i class="fas fa-chevron-down"></i></button>
-            </section>
-            </figure>
+            </div>
+        </section>
         <!-- / PROFILE -->
         <section class="hero__der" id="info">
             <div class="accordion">
@@ -118,9 +125,9 @@
                     </div><!-- accordion-header -->
                     <div class="accordion-content">
                        <div class="hero__der--container">
-                        <p><strong>Gómez RM, López Ortiz AO, Schattner M. (2020).</strong> New roles of platelets in inflammation. Current Opinion in Physiology. Volume 19, 2021, Pages 99-104, ISSN 2468-8673. Doi: 10.1016.</p> 
-                        <p><strong>Gómez RM, López Ortiz AO, Schattner M. (2020).</strong> Platelets and Extracellular Traps in Infections. Platelets. DOI: 10.1080 / 09537104.2020.1718631</p>
-                        <p><strong>Ferrer, M. F., Thomas, P. D., Lopez Ortiz, A. O., Errasti, A., Charó, N. L., Romanowski, V & Gomez, R. M. (2019).</strong> Junin Virus Triggers Macrophage Activation and Modulates Polarization According to Viral Strain Pathogenicity. Frontiers in immunology, 10, 2499.</p>
+                        <p>- Gómez RM, <strong>López Ortiz AO</strong>, Schattner M. (2020). <i> New roles of platelets in inflammation.</i> Current Opinion in Physiology. Volume 19, 2021, Pages 99-104, ISSN 2468-8673. Doi: 10.1016.</p> 
+                        <p>- Gómez RM, <strong>López Ortiz AO</strong>, Schattner M. (2020). <i>Platelets and Extracellular Traps in Infections</i>. Platelets. DOI: 10.1080 / 09537104.2020.1718631</p>
+                        <p>- Ferrer, M. F., Thomas, P. D., <strong>López Ortiz AO</strong>, Errasti, A., Charó, N. L., Romanowski, V & Gomez, R. M. (2019). <i> Junin Virus Triggers Macrophage Activation and Modulates Polarization According to Viral Strain Pathogenicity.</i> Frontiers in Immunology, 10, 2499.</p>
                         <a class="hero__btn" target="_blank" href="https://scholar.google.com/citations?user=fYt_urUAAAAJ&hl=en"> Download from Google Scholar</a>
                        </div>
                     </div><!-- accordion-content -->
@@ -131,9 +138,9 @@
                         <i class="fas fa-chevron-down"></i>
                     </div><!-- accordion-header -->
                     <div class="accordion-content">
-                        <p><strong>2022:</strong> Peach Fellowship from the Biomedical Science Graduate Program BIMS, UVA.</p>
-                        <p><strong>2020:</strong> ALBA-FKNE-YIBRO grant to access the FENS 2020 Virtual Forum.</p> 
-                        <p><strong>2018 - 2021:</strong> National Agency for Scientific and Technological Promotion ANPCyT (Argentina), Doctoral Category.</p>
+                        <p><strong>- 2022:</strong> Peach Fellowship from the Biomedical Science Graduate Program BIMS, UVA.</p>
+                        <p><strong>- 2020:</strong> ALBA-FKNE-YIBRO grant to access the FENS 2020 Virtual Forum.</p> 
+                        <p><strong>- 2018 - 2021:</strong> National Agency for Scientific and Technological Promotion ANPCyT (Argentina), Doctoral Category.</p>
                     </div><!-- accordion-content -->
                 </div><!-- accordion-item Scholarships -->
                 <div class="accordion-item">
@@ -142,12 +149,12 @@
                         <i class="fas fa-chevron-down"></i>
                     </div><!-- accordion-header -->
                     <div class="accordion-content">
-                        <p><strong>March 18-22, 2023:</strong> 53rd American Society for Neurochemistry Annual Meeting. Lexington, KY, US.</p>
-                        <p><strong>July 11-14, 2022:</strong> 4th Americas School of Neuroimmunology ASNI Course. Ohio State University / Columbus, OH, US.</p>
-                        <p><strong>April 25-26, 2022:</strong> Altered astrocytic features in P2RY12 deficient mice. Aida O. Lopez, Joseph O. Uweru and Ukpong B. Eyo. BIG Symposium 2022, Washington University / St. Louis, MO, US (poster presentation).</p>
-                        <p><strong>September 21-23, 2020:</strong> 1st Congress of Women in Bioinformatics and Data Science in Latin America. / Online.</p>
-                        <p><strong>July 11-15, 2020:</strong> Federation of European Neuroscience Societies Virtual Forum / Online.</p>
-                        <p><strong>October 2014:</strong> Identification of Point Mutations in The Voltage-Dependent Sodium Channel associated with Kdr Resistance To Pyrethroids in Anopheles Sp. Circulating in Venezuela. Student Congress of Scientific Research and Development (CEIDEC). Caracas, Venezuela (poster presentation).</p>
+                        <p><strong>- March 18-22, 2023:</strong> 53rd American Society for Neurochemistry Annual Meeting. Lexington, KY, US.</p>
+                        <p><strong>- July 11-14, 2022:</strong> 4th Americas School of Neuroimmunology ASNI Course. Ohio State University / Columbus, OH, US.</p>
+                        <p><strong>- April 25-26, 2022:</strong> Altered astrocytic features in P2RY12 deficient mice. Aida O. Lopez, Joseph O. Uweru and Ukpong B. Eyo. BIG Symposium 2022, Washington University / St. Louis, MO, US (poster presentation).</p>
+                        <p><strong>- September 21-23, 2020:</strong> 1st Congress of Women in Bioinformatics and Data Science in Latin America. / Online.</p>
+                        <p><strong>- July 11-15, 2020:</strong> Federation of European Neuroscience Societies Virtual Forum / Online.</p>
+                        <p><strong>- October 2014:</strong> Identification of Point Mutations in The Voltage-Dependent Sodium Channel associated with Kdr Resistance To Pyrethroids in Anopheles Sp. Circulating in Venezuela. Student Congress of Scientific Research and Development (CEIDEC). Caracas, Venezuela (poster presentation).</p>
                     </div><!-- accordion-content -->
                 </div><!-- accordion-item Conferences -->
                 <div class="accordion-item">
@@ -156,7 +163,9 @@
                         <i class="fas fa-chevron-down"></i>
                     </div><!-- accordion-header -->
                     <div class="accordion-content">
-                        <p><strong>CCIB 2021:</strong> Guest Lecture Committee, BIMS, UVA.</p>
+                        <p><strong>- 2023 - present: President.</strong> UVA Latin-American Graduate Student Association (LGSA).</p>
+                        <p><strong>- 2022 - present: Committee Member.</strong> UVA Neuroscience Graduate Program Diversity Equity and Inclusion (DEI).</p>
+                        <p><strong>- CCIB 2021: Guest Lecture Committee.</strong> UVA Biomedical Sciences Graduate Program.</p>
                     </div><!-- accordion-content -->
                 </div><!-- accordion-item Leadership -->
                 <div class="accordion-item">
@@ -165,14 +174,31 @@
                         <i class="fas fa-chevron-down"></i>
                     </div><!-- accordion-header -->
                     <div class="accordion-content">
-                        <ul>
-                            <li>- GraphPad</li>
-                            <li>- R (Data Analytics Language)</li>
-                            <li>- ImageJ</li>
-                            <li>- Imaris</li>
-                            <li>- FlowJo</li>
-                            <li>- Adobe Photoshop</li>
-                            <li>- Adobe Illustrator</li>
+                        <ul class="softwaregrid">
+                            <div class="software"><li>- R (Data Analytics Language)</li>
+                            <!-- <img src="./img/r-lang.png" alt=""> -->
+                            </div>
+                            <div class="software"><li>- GraphPad Prism</li>
+                            <!-- <img src="./img/graphpad_logo.webp" alt=""> -->
+                            </div>
+                            <div class="software"><li>- Imaris</li>
+                            <!-- <img src="./img/graphpad_logo.webp" alt=""> -->
+                            </div>
+                            <div class="software"><li>- ImageJ</li>
+                            <!-- <img src="./img/graphpad_logo.webp" alt=""> -->
+                            </div>
+                            <div class="software"><li>- Imaris</li>
+                            <!-- <img src="./img/graphpad_logo.webp" alt=""> -->
+                            </div>
+                            <div class="software"><li>- FlowJo</li>
+                            <!-- <img src="./img/graphpad_logo.webp" alt=""> -->
+                            </div>
+                            <div class="software"><li>- Adobe Photoshop</li>
+                            <!-- <img src="./img/graphpad_logo.webp" alt=""> -->
+                            </div>
+                            <div class="software"><li>- Adobe Illustrator</li>
+                            <!-- <img src="./img/graphpad_logo.webp" alt=""> -->
+                            </div>
                         </ul>
                     </div><!-- accordion-content -->
                 </div><!-- accordion-item Software -->
@@ -185,6 +211,7 @@
                         <ul>
                             <li>- English</li>
                             <li>- Spanish</li>
+                            <li>- Japanese (learning)</li>
                         </ul>
                     </div><!-- accordion-content -->
                 </div><!-- accordion-item Languages -->

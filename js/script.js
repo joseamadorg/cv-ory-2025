@@ -1,36 +1,4 @@
-/* const accordionItems = document.querySelectorAll('.accordion-item');
-            
-accordionItems.forEach(item => {
-  const header = item.querySelector('.accordion-header');
 
-  header.addEventListener('click', () => {
-    const isActive = item.classList.contains('active');
-
-    accordionItems.forEach(item => {
-      const content = item.querySelector('.accordion-content');
-      const arrowIcon = item.querySelector('.accordion-header i');
-
-      if (item !== isActive) {
-        item.classList.remove('active');
-        content.style.maxHeight = 0;
-        arrowIcon.classList.remove('fa-chevron-up');
-        arrowIcon.classList.add('fa-chevron-down');
-      }
-    });
-
-    if (isActive) {
-      item.classList.remove('active');
-      item.querySelector('.accordion-content').style.maxHeight = 0;
-      item.querySelector('.accordion-header i').classList.remove('fa-chevron-up');
-      item.querySelector('.accordion-header i').classList.add('fa-chevron-down');
-    } else {
-      item.classList.add('active');
-      item.querySelector('.accordion-content').style.maxHeight = item.querySelector('.accordion-content').scrollHeight + 'px';
-      item.querySelector('.accordion-header i').classList.remove('fa-chevron-down');
-      item.querySelector('.accordion-header i').classList.add('fa-chevron-up');
-    }
-  });
-}); */
 
 const accordionItems = document.querySelectorAll('.accordion-item');
 
@@ -72,3 +40,86 @@ function toggleHeroDerTop() {
     pantallaCarga.style.display = 'none';
   });
   
+  
+
+  /* Archivo: js/script.js */
+
+document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('matrix-bg');
+    const container = document.querySelector('.hero__izq');
+    
+    if (!canvas || !container) return;
+
+    const ctx = canvas.getContext('2d');
+
+    // --- CONFIGURACIÓN DE VELOCIDAD ---
+    // 50ms es aprox 20 cuadros por segundo. 
+    // MÁS LENTO, aumenta este número (ej. 80, 100).
+    // MÁS RÁPIDO, disminúyelo (ej. 30).
+    const velocidad = 70; 
+
+    function resizeCanvas() {
+        canvas.width = container.offsetWidth;
+        canvas.height = container.offsetHeight;
+    }
+    resizeCanvas();
+
+    // Bases del ADN (A, T, C, G) y binarios
+    const characters = 'ATCGATCGATCGATCG01'; 
+    
+    const fontSize = 14; 
+    let columns = Math.floor(canvas.width / fontSize);
+    
+    let drops = [];
+    function initDrops() {
+        columns = Math.floor(canvas.width / fontSize);
+        drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.random() * -100; 
+        }
+    }
+    initDrops();
+
+    function draw() {
+        // Fondo semi-transparente.
+        // 0.1 = estela larga. 0.2 = estela más corta (se borra más rápido).
+        ctx.fillStyle = 'rgba(10, 0, 26, 0.1)'; 
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#b026ff'; // Púrpura base
+        ctx.font = 'bold ' + fontSize + 'px monospace';
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = characters.charAt(Math.floor(Math.random() * characters.length));
+            const x = i * fontSize;
+            const y = drops[i] * fontSize;
+
+            // Brillo aleatorio para algunas letras
+            if (Math.random() > 0.95) {
+                ctx.fillStyle = '#e8abff'; // Blanco/Rosa
+            } else {
+                ctx.fillStyle = '#b026ff'; // Púrpura
+            }
+
+            ctx.fillText(text, x, y);
+
+            if (y > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+
+            drops[i]++;
+        }
+    }
+
+    // --- CAMBIO CLAVE ---
+    // Usamos setInterval en lugar de requestAnimationFrame
+    // Esto fuerza a la animación a esperar 'velocidad' milisegundos entre cuadros.
+    let interval = setInterval(draw, velocidad);
+
+    window.addEventListener('resize', () => {
+        clearInterval(interval); // Limpiamos el intervalo anterior
+        resizeCanvas();
+        initDrops();
+        interval = setInterval(draw, velocidad); // Reiniciamos
+    });
+});
