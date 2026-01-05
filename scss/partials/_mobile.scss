@@ -93,3 +93,21 @@
     }
     
 }
+
+@media (max-width: 768px) {
+    .pixel-card__social {
+        display: none !important;
+    }
+
+    .pixel-card__info-box{
+        margin-bottom: 0px !important;
+    }
+
+    .pixel-card {
+    padding: 10px;
+    max-width: 280px;
+    }
+    .pixel-card__main-img {
+    width: 70%; 
+    }
+}

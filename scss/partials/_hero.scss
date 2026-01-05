@@ -7,7 +7,7 @@
     
     &__izq{
         /* --- CAMBIOS PARA EL FONDO ANIMADO Y LA CARD --- */
-        background-color: #13121b; /* Fondo oscuro para el efecto Matrix */
+        background-color: $uvaBlue; /* Fondo oscuro para el efecto Matrix */
         
         /* Eliminamos background-image anterior para que se vea el canvas */
         
@@ -20,7 +20,7 @@
         width: 50vw;
         height: 100%;
         z-index: 100;
-        border-right: 10px solid #fc09a0;
+        border-right: 5px solid #fc09a0;
         overflow: hidden; /* NECESARIO: Para que la lluvia no se salga del contenedor */
 
         /* Estilo para el canvas de la lluvia (Fondo) */
@@ -105,7 +105,7 @@
             text-decoration: none;
             font-family: 'Lato', sans-serif;
             border-radius: 5px;
-            font-size: 0.8rem;
+            font-size: 1.5rem;
             margin-top: 5px;
             align-self: start;
             z-index: 888;
@@ -122,8 +122,9 @@
         color: $uvaBlue;
         line-height: 1.5;
         transition: top 0.3s ease-in-out; 
+        font-size: 1.2rem;
         &--title {
-            font-size: 2.2rem;
+            font-size: 3rem;
         }
         &--wrapper{
             margin: 1rem 0rem;
@@ -135,8 +136,9 @@
         }
         &--h3 {
             margin-left: 0.5rem;
-            font-size: 1.35rem;
+            font-size: 2rem;
         }
+        
        
     }
 }

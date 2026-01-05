@@ -54,16 +54,40 @@ table {
   border-spacing: 0;
 }
 
+/* ~ /RESET ~ */
+/* En scss/partials/_reset.scss */
 html {
-  scroll-behavior: smooth !important;
+  /* Por defecto el navegador usa 16px (100%).
+     Al poner 62.5%, hacemos que 1rem = 10px. 
+     Esto reduce todo el sitio aprox un 37% comparado con el estándar.
+  */
+  font-size: 50%;
+  /* Si AÚN lo sientes muy grande y quieres simular exactamente el "zoom al 50%",
+     puedes probar bajando a 50% o 55%.
+     font-size: 50%; 
+  */
+  scroll-behavior: smooth; /* (Opcional) Para que el scroll se vea suave */
 }
 
-/* ~ /RESET ~ */
+/* Es buena práctica asegurar que en móviles el texto no quede diminuto.
+   Puedes añadir un media query para restaurar el tamaño en pantallas pequeñas.
+*/
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+}
 /* TIPOGRAFIAS */
 p, span, blockquote {
   font-family: "Lato", "Helvetica", sans-serif;
   margin: 0.5rem 0rem;
   font-size: 1rem;
+}
+
+.par {
+  font-family: "Lato", "Helvetica", sans-serif;
+  margin: 1rem 0rem;
+  font-size: 1.5rem;
 }
 
 ul, a {
@@ -92,7 +116,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .hero__izq {
   /* --- CAMBIOS PARA EL FONDO ANIMADO Y LA CARD --- */
-  background-color: #13121b; /* Fondo oscuro para el efecto Matrix */
+  background-color: #232D4B; /* Fondo oscuro para el efecto Matrix */
   /* Eliminamos background-image anterior para que se vea el canvas */
   display: flex;
   flex-direction: column;
@@ -102,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 50vw;
   height: 100%;
   z-index: 100;
-  border-right: 10px solid #fc09a0;
+  border-right: 5px solid #fc09a0;
   overflow: hidden; /* NECESARIO: Para que la lluvia no se salga del contenedor */
   /* Estilo para el canvas de la lluvia (Fondo) */
   /* Estilo para el contenedor de la Card (Frente) */
@@ -178,7 +202,7 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   font-family: "Lato", sans-serif;
   border-radius: 5px;
-  font-size: 0.8rem;
+  font-size: 1.5rem;
   margin-top: 5px;
   align-self: start;
   z-index: 888;
@@ -194,9 +218,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #232D4B;
   line-height: 1.5;
   transition: top 0.3s ease-in-out;
+  font-size: 1.2rem;
 }
 .hero__der--title {
-  font-size: 2.2rem;
+  font-size: 3rem;
 }
 .hero__der--wrapper {
   margin: 1rem 0rem;
@@ -208,7 +233,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .hero__der--h3 {
   margin-left: 0.5rem;
-  font-size: 1.35rem;
+  font-size: 2rem;
 }
 
 .flex {
@@ -351,71 +376,58 @@ footer button {
 .pixel-card {
   font-family: "Press Start 2P", monospace; /* Fuente Pixelada */
   background-color: #fdf5e6; /* Fondo Hueso */
-  border: 4px solid #3e2c21; /* Borde Café Oscuro */
+  border: 4px solid #e6007e; /* Borde Rosa Fuerte */
   padding: 20px;
-  color: #3e2c21;
-  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2); /* Sombra sólida */
+  color: #232D4B;
   width: 100%;
-  max-width: 360px;
+  max-width: 280px;
   margin: 0 auto;
   text-transform: uppercase;
 }
 .pixel-card__header {
   text-align: center;
-  margin-bottom: 15px;
-  border-bottom: 4px solid #3e2c21;
-  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #232D4B;
 }
 .pixel-card__name {
-  font-size: 2.5rem;
+  font-size: 4rem;
   line-height: 1.6;
   margin: 0;
-  color: #3e2c21;
-}
-.pixel-card__image-frame {
-  background-color: #3e2c21;
-  padding: 4px; /* Grosor del marco interno */
-  margin-bottom: 20px;
+  color: #232D4B;
 }
 .pixel-card__label-top, .pixel-card__label-bottom {
-  background-color: #3e2c21;
-  color: #e4c388; /* Color Arena para contraste */
+  color: #232D4B; /* Color Arena para contraste */
   text-align: center;
   padding: 6px 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.5;
   letter-spacing: 1px;
 }
 .pixel-card__main-img {
-  width: 100%;
+  width: 80%;
   height: auto;
   display: block;
   background-color: #fff;
-  border-top: 2px solid #3e2c21;
-  border-bottom: 2px solid #3e2c21;
+  border: 5px solid #232D4B;
   -o-object-fit: cover;
      object-fit: cover;
+  margin: 0 auto;
 }
 .pixel-card__info-box {
-  background-color: #e4c388; /* Fondo de caja de texto estilo retro */
-  border: 2px solid #3e2c21;
-  padding: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-align: center;
 }
 .pixel-card__info-box .pixel-card__text {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.5;
   margin: 0;
   font-family: "Press Start 2P", monospace; /* Mantiene fuente pixelada */
 }
 .pixel-card__info-box .highlight {
-  display: block;
-  margin-top: 5px;
-  color: #fff;
-  font-size: 1.45rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 0 #3e2c21; /* Efecto de relieve */
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin: 0;
+  font-family: "Press Start 2P", monospace; /* Mantiene fuente pixelada */
 }
 .pixel-card__social {
   display: flex;
@@ -424,12 +436,12 @@ footer button {
   padding-top: 5px;
 }
 .pixel-card__social a {
-  color: #3e2c21;
+  color: #232D4B;
   font-size: 20px;
   text-decoration: none;
   transition: transform 0.1s;
   background-color: #fff;
-  border: 2px solid #3e2c21;
+  border: 2px solid #232D4B;
   width: 40px;
   height: 40px;
   display: flex;
@@ -742,5 +754,20 @@ footer button {
 @media screen and (min-width: 993px) {
   footer, .toggle__btn {
     display: none;
+  }
+}
+@media (max-width: 768px) {
+  .pixel-card__social {
+    display: none !important;
+  }
+  .pixel-card__info-box {
+    margin-bottom: 0px !important;
+  }
+  .pixel-card {
+    padding: 10px;
+    max-width: 280px;
+  }
+  .pixel-card__main-img {
+    width: 70%;
   }
 }

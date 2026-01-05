@@ -48,8 +48,33 @@ table {
 	border-spacing: 0;
 }
 
-html{
-	scroll-behavior: smooth !important;
+/* ~ /RESET ~ */
+
+
+/* En scss/partials/_reset.scss */
+
+html {
+    /* Por defecto el navegador usa 16px (100%).
+       Al poner 62.5%, hacemos que 1rem = 10px. 
+       Esto reduce todo el sitio aprox un 37% comparado con el estándar.
+    */
+    font-size: 50%; 
+    
+    /* Si AÚN lo sientes muy grande y quieres simular exactamente el "zoom al 50%",
+       puedes probar bajando a 50% o 55%.
+       font-size: 50%; 
+    */
+    
+    scroll-behavior: smooth; /* (Opcional) Para que el scroll se vea suave */
 }
 
-/* ~ /RESET ~ */
+/* Es buena práctica asegurar que en móviles el texto no quede diminuto.
+   Puedes añadir un media query para restaurar el tamaño en pantallas pequeñas.
+*/
+@media (max-width: 768px) {
+    html {
+        // En móviles quizás quieras que el texto sea un poco más grande
+        // para facilitar la lectura. 
+        font-size: 55%; 
+    }
+}
