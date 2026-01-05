@@ -20,7 +20,7 @@
         width: 50vw;
         height: 100%;
         z-index: 100;
-        border-right: 5px solid #fc09a0;
+        border-right: 5px solid #e6007e;
         overflow: hidden; /* NECESARIO: Para que la lluvia no se salga del contenedor */
 
         /* Estilo para el canvas de la lluvia (Fondo) */
@@ -159,7 +159,7 @@
     color: #fff;
     font-size: 1rem;
     border: none;
-    background: #fc09a0;
+    background: #e6007e;
     width: 50px; /* Ancho igual a la altura para hacerlo redondo */
     height: 50px; /* Altura igual al ancho para hacerlo redondo */
     border-radius: 50%; /* Hace que el botón sea redondo */
