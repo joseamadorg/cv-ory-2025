@@ -107,4 +107,16 @@
     .pixel-card__main-img {
     width: 70%; 
     }
+
+    .corner-trigger {
+        position: absolute;
+        top: -2px;
+        right: 35px; /* Ajuste específico que pediste */
+        width: 50px;
+        height: 50px;
+        background-color: #e6007e; /* Nuevo color rosa */
+        clip-path: polygon(0 0, 100% 0, 100% 100%);
+        cursor: pointer;
+        z-index: 10;
+    }
 }

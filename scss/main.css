@@ -506,7 +506,7 @@ footer button {
   height: auto; /* La altura se ajusta sola y el contenedor la respeta */
   -o-object-fit: cover;
      object-fit: cover;
-  border: 2px solid #3e2c21; /* Aseguramos que el borde esté en la imagen */
+  border: 5px solid #232D4B; /* Aseguramos que el borde esté en la imagen */
 }
 
 /* --- TRIÁNGULO ESQUINA --- */
@@ -516,7 +516,7 @@ footer button {
   right: -2px;
   width: 50px;
   height: 50px;
-  background-color: #b026ff; /* Rosa Neón */
+  background-color: #e6007e; /* Rosa Neón */
   clip-path: polygon(0 0, 100% 0, 100% 100%);
   cursor: pointer;
   z-index: 20; /* Z-index alto para estar sobre la imagen */
@@ -526,7 +526,7 @@ footer button {
   position: absolute;
   top: 8px;
   right: 8px;
-  font-size: 14px;
+  font-size: 12px;
   color: #ffffff;
   font-weight: bold;
 }
@@ -535,7 +535,7 @@ footer button {
 }
 
 .back-trigger {
-  background-color: #333;
+  background-color: #e6007e; /* Mismo color rosa */
 }
 .back-trigger i {
   color: #e8abff;
@@ -984,5 +984,16 @@ footer button {
   }
   .pixel-card__main-img {
     width: 70%;
+  }
+  .corner-trigger {
+    position: absolute;
+    top: -2px;
+    right: 35px; /* Ajuste específico que pediste */
+    width: 50px;
+    height: 50px;
+    background-color: #e6007e; /* Nuevo color rosa */
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    cursor: pointer;
+    z-index: 10;
   }
 }
