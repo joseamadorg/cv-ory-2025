@@ -31,7 +31,7 @@
                 <div class="pixel-card__image-frame">
                     <div class="pixel-card__label-top">CELLULAR BIOLOGIST</div>
                     <img src="./img/oryza-card-img.jpeg" alt="Aida López-Ortiz" class="pixel-card__main-img">
-                    <div class="pixel-card__label-bottom">PHD CANDIDATE</div>
+                    <div class="pixel-card__label-bottom" style="text-decoration: underline;">PHD CANDIDATE</div>
                 </div>
 
                 <div class="pixel-card__info-box">
@@ -70,7 +70,7 @@
                     <div class="accordion-content">
                         <div class="flex">
                             <img class="flag" src="./img/united-states.png" alt="US" width="24" height="auto">
-                            <h3 class="hero__der--h3">PHD STUDENT / UNIVERSITY OF VIRGINIA, UVA / 2026</h3>
+                            <h3 class="hero__der--h3">PHD CANDIDATE / UNIVERSITY OF VIRGINIA, UVA / 2026</h3>
                         </div>
                         <div class="hero__der--container">
                             <p class="par">The University of Virginia (UVA) was founded in 1819 by Thomas Jefferson and is located in Charlottesville, Virginia. UVA is consistently ranked among the top public universities in the United States and is well-known for its commitment to academic excellence and research.</p>
@@ -179,30 +179,14 @@
                     </div><!-- accordion-header -->
                     <div class="accordion-content">
                         <ul class="softwaregrid">
-                            <div class="software"><li class="par">- R (Data Analytics Language)</li>
-                            <!-- <img src="./img/r-lang.png" alt=""> -->
-                            </div>
-                            <div class="software"><li class="par">- GraphPad Prism</li>
-                            <!-- <img src="./img/graphpad_logo.webp" alt=""> -->
-                            </div>
-                            <div class="software"><li class="par">- Imaris</li>
-                            <!-- <img src="./img/graphpad_logo.webp" alt=""> -->
-                            </div>
-                            <div class="software"><li class="par">- ImageJ</li>
-                            <!-- <img src="./img/graphpad_logo.webp" alt=""> -->
-                            </div>
-                            <div class="software"><li class="par">- Imaris</li>
-                            <!-- <img src="./img/graphpad_logo.webp" alt=""> -->
-                            </div>
-                            <div class="software"><li class="par">- FlowJo</li>
-                            <!-- <img src="./img/graphpad_logo.webp" alt=""> -->
-                            </div>
-                            <div class="software"><li class="par">- Adobe Photoshop</li>
-                            <!-- <img src="./img/graphpad_logo.webp" alt=""> -->
-                            </div>
-                            <div class="software"><li class="par">- Adobe Illustrator</li>
-                            <!-- <img src="./img/graphpad_logo.webp" alt=""> -->
-                            </div>
+                            <div class="software"><li class="par">- R (Data Analytics Language)</li></div>
+                            <div class="software"><li class="par">- GraphPad Prism</li></div>
+                            <div class="software"><li class="par">- Imaris</li></div>
+                            <div class="software"><li class="par">- ImageJ</li></div>
+                            <div class="software"><li class="par">- Imaris</li></div>
+                            <div class="software"><li class="par">- FlowJo</li></div>
+                            <div class="software"><li class="par">- Adobe Photoshop</li></div>
+                            <div class="software"><li class="par">- Adobe Illustrator</li></div>
                         </ul>
                     </div><!-- accordion-content -->
                 </div><!-- accordion-item Software -->
@@ -219,12 +203,92 @@
                         </ul>
                     </div><!-- accordion-content -->
                 </div><!-- accordion-item Languages -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h2 class="hero__der--title">GALLERY</h2>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="gallery-row">
+                            <div class="gallery-column">
+                                <img src="./img/foto1.jpeg" onclick="openModal();currentSlide(1)" class="hover-shadow cursor" alt="Foto 1">
+                            </div>
+                            <div class="gallery-column">
+                                <img src="./img/foto2.jpeg" onclick="openModal();currentSlide(2)" class="hover-shadow cursor" alt="Foto 2">
+                            </div>
+                            <div class="gallery-column">
+                                <img src="./img/foto3.jpeg" onclick="openModal();currentSlide(3)" class="hover-shadow cursor" alt="Foto 3">
+                            </div>
+                            <div class="gallery-column">
+                                <img src="./img/foto4.jpeg" onclick="openModal();currentSlide(4)" class="hover-shadow cursor" alt="Foto 4">
+                            </div>
+                            <div class="gallery-column">
+                                <img src="./img/foto5.jpeg" onclick="openModal();currentSlide(5)" class="hover-shadow cursor" alt="Foto 5">
+                            </div>
+                            <div class="gallery-column">
+                                <img src="./img/foto6.jpeg" onclick="openModal();currentSlide(6)" class="hover-shadow cursor" alt="Foto 6">
+                            </div>
+                            <div class="gallery-column">
+                                <img src="./img/foto7.jpeg" onclick="openModal();currentSlide(7)" class="hover-shadow cursor" alt="Foto 7">
+                            </div>
+                            <div class="gallery-column">
+                                <img src="./img/foto8.jpeg" onclick="openModal();currentSlide(8)" class="hover-shadow cursor" alt="Foto 8">
+                            </div>
+                    </div><!-- accordion-content -->
+                </div><!-- accordion-item Gallery -->
                 <footer>
                     <button onclick='toggleHeroDerTop()'>BACK TO PROFILE <i class="fas fa-chevron-up ml"></i></button>
                 </footer>
             </div> <!-- ACCORDION -->
         </section><!-- HERO DER -->
     </section><!-- /SUPER HERO -->
+    <div id="myModal" class="modal">
+        <span class="close-cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+
+            <div class="mySlides">
+            <div class="numbertext">1 / 4</div>
+            <img src="./img/foto1.jpeg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+            <div class="numbertext">2 / 4</div>
+            <img src="./img/foto2.jpeg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+            <div class="numbertext">3 / 4</div>
+            <img src="./img/foto3.jpeg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+            <div class="numbertext">4 / 8</div>
+            <img src="./img/foto4.jpeg" style="width:100%">
+            </div>
+            <div class="mySlides">
+            <div class="numbertext">5 / 8</div>
+            <img src="./img/foto5.jpeg" style="width:100%">
+            </div>
+            <div class="mySlides">
+            <div class="numbertext">6 / 8</div>
+            <img src="./img/foto6.jpeg" style="width:100%">
+            </div>
+            <div class="mySlides">
+            <div class="numbertext">7 / 8</div>
+            <img src="./img/foto7.jpeg" style="width:100%">
+            </div>
+            <div class="mySlides">
+            <div class="numbertext">8 / 8</div>
+            <img src="./img/foto8.jpeg" style="width:100%">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <div class="caption-container">
+            <p id="caption">Photo by AIDA LOPEZ-ORTIZ</p>
+            </div>
+        </div>
+        </div>
     <script src="./js/script.js"></script>
 </body>
 </html>

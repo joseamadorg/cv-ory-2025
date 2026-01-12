@@ -123,3 +123,52 @@ document.addEventListener('DOMContentLoaded', () => {
         interval = setInterval(draw, velocidad); // Reiniciamos
     });
 });
+
+/* --- LIGHTBOX LOGIC --- */
+
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+  // Bloquear el scroll del body cuando el modal está abierto
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+  // Reactivar el scroll
+  document.body.style.overflow = "auto";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  
+  // Si no hay slides (el modal no existe), salir para evitar errores
+  if (slides.length === 0) return;
+
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  
+  slides[slideIndex-1].style.display = "block";
+}
+
+// Cerrar modal con la tecla ESC
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+        closeModal();
+    }
+});
