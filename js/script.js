@@ -172,3 +172,12 @@ document.addEventListener('keydown', function(event) {
         closeModal();
     }
 });
+
+
+/* --- FLIP CARD LOGIC --- */
+
+function toggleFlip() {
+    const card = document.getElementById('card-flip');
+    // Alternar la clase 'flipped' que definimos en CSS
+    card.classList.toggle('flipped');
+}

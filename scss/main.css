@@ -456,6 +456,91 @@ footer button {
   background-color: #e4c388;
 }
 
+/* --- FLIP CARD EFFECT --- */
+.flip-container {
+  perspective: 1000px; /* Profundidad 3D */
+  width: 100%;
+  position: relative;
+  /* Esto asegura que el contenedor tenga altura basada en la imagen (truco de aspect-ratio o display) */
+  display: flex;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s; /* Duración del giro */
+  transform-style: preserve-3d; /* Clave para el 3D */
+  display: flex; /* Para ajustar imagen */
+}
+
+/* Clase que activaremos con JS para girar */
+.flip-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+  width: 100%;
+  backface-visibility: hidden; /* Oculta la cara de atrás cuando gira */
+  position: relative;
+}
+
+/* La cara de atrás debe estar en posición absoluta para superponerse al inicio, 
+   pero rotada 180deg para que empiece "mirando atrás" */
+.flip-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transform: rotateY(180deg);
+}
+
+/* Asegurar que las imágenes ocupen todo */
+.pixel-card__main-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* Importante: ambas imágenes deben tener las mismas dimensiones 
+     o aspect-ratio para que no se deforme el giro */
+}
+
+/* scss/partials/_pixel-card.scss */
+.corner-trigger {
+  position: absolute;
+  /* Ajuste fino para que cubra el borde de la imagen desde la esquina exacta */
+  top: -2px;
+  right: -2px;
+  width: 50px;
+  height: 50px;
+  background-color: #e6007e;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+  cursor: pointer;
+  z-index: 10;
+}
+.corner-trigger i {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 12px;
+  color: #ffffff; /* Blanco para mejor contraste con el rosa fuerte */
+  font-weight: bold;
+}
+.corner-trigger:hover {
+  /* Solo cambiamos ligeramente el brillo para indicar que es clickeable */
+  filter: brightness(1.2);
+  /* transform: scale(1.05); <--- ELIMINADO */
+}
+
+.back-trigger {
+  background-color: #e6007e; /* Un color oscuro para diferenciar el "volver", o usa el mismo rosa */
+  /* Si quieres que sea el mismo rosa fuerte, borra la línea de arriba */
+}
+.back-trigger i {
+  color: #ffffff; /* Icono blanco para mejor contraste con el fondo oscuro */
+}
+
 .mouse {
   width: 52px;
   height: 88px;
