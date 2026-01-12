@@ -95,98 +95,93 @@
 }
 
 
-/* --- FLIP CARD EFFECT --- */
+
+/* --- FLIP CARD EFFECT (CORREGIDO PARA MÓVIL) --- */
+
+.pixel-card__image-frame {
+    /* Aseguramos que el triángulo no se corte si sale del marco */
+    overflow: visible; 
+    /* El resto de estilos de borde/padding se mantienen... */
+}
+
 .flip-container {
     perspective: 1000px; /* Profundidad 3D */
     width: 100%;
     position: relative;
-    /* Esto asegura que el contenedor tenga altura basada en la imagen (truco de aspect-ratio o display) */
-    display: flex; 
+    overflow: visible; /* Importante para ver el triángulo */
+    z-index: 5;
 }
 
 .flip-inner {
     position: relative;
     width: 100%;
-    height: 100%;
-    transition: transform 0.8s; /* Duración del giro */
-    transform-style: preserve-3d; /* Clave para el 3D */
-    display: flex; /* Para ajustar imagen */
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    
+    /* SOLUCIÓN MÓVIL: Usamos Grid para superponer las imágenes */
+    display: grid; 
+    grid-template-columns: 1fr;
+    /* Esto hace que frente y dorso ocupen el mismo espacio físico */
 }
 
-/* Clase que activaremos con JS para girar */
 .flip-inner.flipped {
     transform: rotateY(180deg);
 }
 
 .flip-front, .flip-back {
+    /* Ambos ocupan la fila 1, columna 1. Se apilan automáticamente. */
+    grid-area: 1 / 1; 
+    
     width: 100%;
-    backface-visibility: hidden; /* Oculta la cara de atrás cuando gira */
-    position: relative;
+    backface-visibility: hidden; /* Oculta la cara de atrás */
+    -webkit-backface-visibility: hidden; /* Soporte Safari Mobile */
+    
+    position: relative; /* Ya no necesitamos absolute para el dorso */
 }
 
-/* La cara de atrás debe estar en posición absoluta para superponerse al inicio, 
-   pero rotada 180deg para que empiece "mirando atrás" */
 .flip-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
+    /* El dorso empieza rotado para estar "atrás" */
     transform: rotateY(180deg);
 }
 
-/* Asegurar que las imágenes ocupen todo */
 .pixel-card__main-img {
     display: block;
     width: 100%;
-    height: auto;
+    height: auto; /* La altura se ajusta sola y el contenedor la respeta */
     object-fit: cover; 
-    /* Importante: ambas imágenes deben tener las mismas dimensiones 
-       o aspect-ratio para que no se deforme el giro */
+    border: 2px solid #3e2c21; /* Aseguramos que el borde esté en la imagen */
 }
 
-/* scss/partials/_pixel-card.scss */
-
+/* --- TRIÁNGULO ESQUINA --- */
 .corner-trigger {
     position: absolute;
-    /* Ajuste fino para que cubra el borde de la imagen desde la esquina exacta */
     top: -2px;
     right: -2px;
     width: 50px;
     height: 50px;
-    
-   
-    background-color: $color-primary;
-    
-   
+    background-color: #b026ff; /* Rosa Neón */
     clip-path: polygon(0 0, 100% 0, 100% 100%);
-    
     cursor: pointer;
-    z-index: 10;
-    
-   
+    z-index: 20; /* Z-index alto para estar sobre la imagen */
+    pointer-events: all; /* Asegura que reciba clicks en móvil */
 
     i {
         position: absolute;
         top: 8px;
         right: 8px;
-        font-size: 12px;
-        color: #ffffff; /* Blanco para mejor contraste con el rosa fuerte */
+        font-size: 14px;
+        color: #ffffff;
         font-weight: bold;
     }
-    
+
     &:hover {
-        /* Solo cambiamos ligeramente el brillo para indicar que es clickeable */
         filter: brightness(1.2);
-        /* transform: scale(1.05); <--- ELIMINADO */
     }
 }
 
 .back-trigger {
-    background-color: $color-primary; /* Un color oscuro para diferenciar el "volver", o usa el mismo rosa */
-    
-    /* Si quieres que sea el mismo rosa fuerte, borra la línea de arriba */
-    
+    background-color: #333; 
     i {
-        color: #ffffff; /* Icono blanco para mejor contraste con el fondo oscuro */
+        color: #e8abff;
     }
 }
