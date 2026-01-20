@@ -75,7 +75,7 @@ html {
 */
 @media (max-width: 768px) {
   html {
-    font-size: 55%;
+    font-size: 60%;
   }
 }
 /* TIPOGRAFIAS */
@@ -524,8 +524,8 @@ footer button {
 }
 .corner-trigger i {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 10px;
+  right: 10px;
   font-size: 12px;
   color: #ffffff;
   font-weight: bold;
