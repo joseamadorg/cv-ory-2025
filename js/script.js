@@ -1,27 +1,59 @@
-
+/* js/script.js - Lógica de Acordeón con Scroll y Rotación */
 
 const accordionItems = document.querySelectorAll('.accordion-item');
 
 accordionItems.forEach(item => {
-  const header = item.querySelector('.accordion-header');
+    const header = item.querySelector('.accordion-header');
+    const icon = header.querySelector('i'); // El ícono del chevron
 
-  header.addEventListener('click', () => {
-    const isActive = item.classList.contains('active');
-
-    accordionItems.forEach(accItem => {
-      if (accItem !== item && accItem.classList.contains('active')) {
-        accItem.classList.remove('active');
-      }
-    });
-
-    if (!isActive) {
-      item.classList.add('active');
-    } else {
-      item.classList.remove('active');
+    // 1. Configurar transición suave para el ícono vía JS
+    if (icon) {
+        icon.style.transition = 'transform 0.3s ease';
     }
-  });
-});
 
+    header.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        // 2. CERRAR LOS DEMÁS (y resetear sus íconos)
+        accordionItems.forEach(accItem => {
+            if (accItem !== item && accItem.classList.contains('active')) {
+                accItem.classList.remove('active');
+                
+                // Resetear ícono del otro acordeón
+                const otherIcon = accItem.querySelector('.accordion-header i');
+                if (otherIcon) {
+                    otherIcon.style.transform = 'rotate(0deg)';
+                }
+            }
+        });
+
+        // 3. LÓGICA DEL ACORDEÓN ACTUAL
+        if (!isActive) {
+            // ABRIR
+            item.classList.add('active');
+            
+            // Rotar ícono actual
+            if (icon) icon.style.transform = 'rotate(180deg)';
+
+            // --- SCROLL AL HEADER ---
+            // Esperamos 300ms (tiempo estándar de una animación CSS) 
+            // para asegurar que el contenido se ha desplegado.
+            setTimeout(() => {
+                header.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start'  // Alinea el header en la parte superior
+                });
+            }, 300);
+
+        } else {
+            // CERRAR
+            item.classList.remove('active');
+            
+            // Resetear ícono actual
+            if (icon) icon.style.transform = 'rotate(0deg)';
+        }
+    });
+});
 
 const info = document.getElementById('info');
 
@@ -42,7 +74,6 @@ function toggleHeroDerTop() {
   
   
 
-  /* Archivo: js/script.js */
 
 document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('matrix-bg');
