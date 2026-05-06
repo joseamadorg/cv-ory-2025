@@ -113,7 +113,6 @@ h1, h2, h3, h4, h5, h6 {
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* ~ /HERO__IZQ ~ */
 }
 .hero__izq {
   /* --- CAMBIOS PARA EL FONDO ANIMADO Y LA CARD --- */
@@ -130,7 +129,6 @@ h1, h2, h3, h4, h5, h6 {
   border-right: 5px solid #e6007e;
   overflow: hidden; /* NECESARIO: Para que la lluvia no se salga del contenedor */
   /* Estilo para el canvas de la lluvia (Fondo) */
-  /* Estilo para el contenedor de la Card (Frente) */
 }
 .hero__izq #matrix-bg {
   position: absolute;
@@ -141,6 +139,9 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 0; /* Se queda al fondo */
   opacity: 0.4; /* Transparencia para no competir con la card */
 }
+.hero__izq {
+  /* Estilo para el contenedor de la Card (Frente) */
+}
 .hero__izq-container {
   position: relative;
   z-index: 2; /* Asegura que la card flote sobre la lluvia */
@@ -149,6 +150,9 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.hero {
+  /* ~ /HERO__IZQ ~ */
 }
 .hero__figure {
   display: flex;
@@ -415,7 +419,7 @@ footer button {
   margin: 0 auto;
 }
 .pixel-card__info-box {
-  margin-bottom: 10px;
+  margin: 10px 0px;
   text-align: center;
 }
 .pixel-card__info-box .pixel-card__text {
@@ -996,4 +1000,4 @@ footer button {
     cursor: pointer;
     z-index: 10;
   }
-}
+}/*# sourceMappingURL=main.css.map */
